@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+</div>
+<div id="pessoa">
+    <p>Meu nome é {{ nome }} {{ sNome }} portador do cpf {{ cpf }}, tenho o seguinte numero de telefone {{ telefone }} e sou moro na rua {{ endereco() }} {{ municipio }}- {{ estado}}. </p>
+    <p></p>
+</div>
+
+<script>
+    new Vue({
+        el: "#app", //refencia a id ou class da tag que vai instaciar este elemento.
+        data: {     // onde são defenidos os atributos deste elemento
+            titulo: 'O homem mais rico da babilônia'
+        },
+        methods: {  //não pode haver funções com o mesmo nome de um atributo declarado anteriomente, pois causa conflito
+            saudacao() {
+                console.log(this)
+                return this.titulo
+            } 
+        }
+    })
+
+
+    new Vue({
+        el: '#pessoa',
+        data:{
+            nome: 'Wallace',
+            sNome: 'Melo',
+            cpf: '000.000.000-40',
+            telefone: '(27)-99999-9999',
+            municipio: 'Cariacica',
+            estado: 'ES'           
+        },
+        methods: {
+            endereco() {
+                return 'rua Princesa Isabel'
+            }
+        }
+    })
+</script>

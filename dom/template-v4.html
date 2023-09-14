@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p>
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link" target="_blank" >Acesse o Google</a><!-- Chaves duplas {{}} - não podem ser usadas em atributos HTML. Para isso, utilize a diretiva v-bind:-->
+</div>
+
+<script>
+    new Vue({
+        el: "#app", //refencia a id ou class da tag que vai instaciar este elemento.
+        data: {     // onde são defenidos os atributos deste elemento
+            titulo: 'O homem mais rico da babilônia',
+            link: 'http://google.com.br'
+        },
+        methods: {  //não pode haver funções com o mesmo nome de um atributo declarado anteriomente, pois causa conflito
+            saudacao() {
+                console.log(this)
+                return this.titulo
+            } 
+        }
+    })
+</script>
+
+
