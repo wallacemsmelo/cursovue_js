@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <ul>
+        <li v-for="(cor, i) in cores" :teste='cor'><!-- O nome da variavel e COR, mas ele retorna o array cores --> Element in array Cores = {{ cor }} - <!-- Indice do Array Cores dentro de data --> Position in array {{ i }}</li> <!-- v-for percorre a lista de elementos que esta contido dentro de cores -->
+        
+    </ul>
+    <hr>
+    <div v-for="(cor, i) in cores">
+        <h1>{{ cor }}</h1>
+        <p>{{ i }}</p>
+    </div>
+
+</div>
+
+<script>
+    new Vue({/* { Cada elemento Vue possui atributos: el(nome da id ou class referencia), 
+                                                    data( insere os dados, listas e declara variaveis), 
+                                                    computed( calcula valores e retorna algo), 
+                                                    watch(observa a alteracao dos dados, nao retorna nada ), 
+                                                    methods(declara-se funcoes para instanciar em algum momento) */
+        el: '#app',
+        data: {
+            cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+            pessoas: [
+                { nome: 'Ana', idade: 26, peso: 59},
+                { nome: 'Guilherme', idade: 22, peso: 89},
+            ]
+        }
+    })
+</script>
+
+
+<style>
+    ul > li {
+        list-style: none;
+    }
+
+    h1, p {
+        display: inline;
+    }
+</style>
