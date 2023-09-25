@@ -1,4 +1,4 @@
-<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 
 <div id="desafio">
@@ -7,20 +7,20 @@
     para ver a diferença -->
   <h2>#01</h2>
   <div>
-    <button>Alternar</button>
-    <p>Você quer me ver ...</p>
-    <p>...ou eu</p>
-    <p>Você quer me ver ...</p>
-    <p>...ou eu</p>
+    <button @click="condicao = !condicao">Alternar</button>
+    <p v-if="condicao">V-IF - Mostrar se atributo "condicao" for TRUE</p>
+    <p v-else>V-ELSE - Mostrar se atributo "condicao" for FALSE</p>
+    <p v-show="condicao">V-SHOW - Mostrar se "condicao" for TRUE</p>
+    <p v-show="!condicao">V-SHOW - Mostrar se "condicao" for a negacao de TRUE ou seja, FALSE</p>
   </div>
 
   <!-- 2) Exiba em uma <ul> um array de elementos da sua escolha.
     Imprima também o índice de cada elemento. -->
   <h2>#02</h2>
   <ul>
-    <li></li>
+    <li v-for="(nome, indice) in nomes">{{ nome }} e a posicao {{ indice + 1 }}</li>
   </ul>
-  
+
   <!-- 3) Imprimir todos os pares de valor-chave do objeto a seguir:
     {
 			titulo: 'O Senhor dos Anéis',
@@ -30,9 +30,9 @@
     Imprima também o índice de cada item. -->
   <h2>#03</h2>
   <ul>
-    <li></li>
+    <li v-for="(valor, chave, indice) in livro">{{ valor}} {{ chave}} {{indice}}</li>
   </ul>
-  
+
   <!-- 4) Imprima o seguinte objeto (somente os valores) e
     também crie um loop aninhado para o array:
     {
@@ -43,8 +43,16 @@
     (dica: use v-for e v-if na resolução) -->
   <h2>#04</h2>
   <ul>
-    <li>
-    
+    <li v-for="valor in aluno">
+      <template v-if="!Array.isArray(valor)">
+        {{ valor }}
+      </template>
+      <template v-else>
+        Notas:
+        <ul>
+          <li v-for="nota in valor"> {{ nota }}</li>
+        </ul>
+      </template>
     </li>
   </ul>
 </div>
