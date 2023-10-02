@@ -1,0 +1,36 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="identificador">
+  <p>{{ nome }}</p>
+  <p>{{ sobrenome }}</p>
+  <button @click="adicionarGralha">Adicionar #</button>
+  <button @click="adicionarExclamacao">Adicionar !</button>
+  <button :nome="mudarNome()">Mudar nome</button>
+</div>
+
+<script>
+  const vm = new Vue({
+    el: "#identificador",
+    data: {
+      nome: "Wallace",
+      sobrenome: "Melo",
+    },
+    methods: {
+      adicionarGralha() {
+        this.nome += "#";
+      },
+      adicionarExclamacao() {
+        this.sobrenome += "!";
+      },
+
+      mudarNome(v) {
+        if(v === "wallace"){
+            return (this.nome = 'Carlos');
+        }else{
+            return (this.nome = 'Wallace');
+        }
+        
+      },
+    },
+  });
+</script>

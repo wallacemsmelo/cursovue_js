@@ -1,0 +1,55 @@
+<meta charset="UTF-8" />
+
+<div id="app"></div>
+
+<!-- <script>
+  function MeuVue(params) {
+    this.$el = document.querySelector(params.el);
+    this.$data = params.data;
+
+    for (let atr in this.$data) {
+      Object.defineProperty(this, atr, {
+        get: () => {
+          return this.$data[atr]
+        },
+        set: value => {
+          return this.$data[atr] = value
+        }
+      })
+    }
+  }
+
+  const vm = new MeuVue({el: '#app', data: {nome: 'Maria',sobrenome: 'Silva'}});
+
+  console.log(vm.nome);
+</script> -->
+
+<script>
+  function exemploVue(qualquerNome) { 
+    this.el = document.querySelector(qualquerNome.el); //
+    this.dados = qualquerNome.data;
+    for (let atributo in this.dados) {
+      Object.defineProperty(this, atributo, {
+        get: () => {
+          return this.dados[atributo];
+        },
+        set: (value) => {
+          return (this.dados[atributo] = value);
+        },
+      });
+    }
+  }
+
+  const exibirNome = new exemploVue ({
+        el:'#app',
+        data:{
+            nome: 'Wallace',
+            sobrenome: 'Melo'
+        },}
+  )
+
+  exibirNome.nome = 'Marcelo'
+
+  console.log(exibirNome.nome + exibirNome.sobrenome);
+  console.log(exibirNome.data);
+</script>
