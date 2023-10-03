@@ -1,0 +1,14 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p>{{ mensagem }}</p>
+  <input v-model="mensagem">
+</div>
+<script>
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      mensagem:'mensagem à ser revertida'
+    },
+  });
+</script>

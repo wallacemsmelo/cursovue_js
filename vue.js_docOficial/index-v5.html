@@ -1,0 +1,19 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p>{{ mensagem }}</p>
+  <button v-on:click="reverseMensagem">Reverter</button>
+</div>
+<script>
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      mensagem:'mensagem à ser revertida'
+    },
+    methods:{
+      reverseMensagem(){
+        this.mensagem = this.mensagem.split('').reverse().join('')
+      }
+    }
+  });
+</script>

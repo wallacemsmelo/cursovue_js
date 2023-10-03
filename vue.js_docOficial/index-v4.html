@@ -1,0 +1,19 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <ol>
+    <li v-for="todo in todos" style="list-style: none;">Texto{{todo.id}} - {{todo.mensagem }}</li>
+  </ol>
+</div>
+<script>
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      todos:[
+        {id: 1, mensagem: 'Mensagem 1'},
+        {id: 2, mensagem: 'Mensagem 2'},
+        {id: 3, mensagem: 'Mensagem 3'}
+      ]
+    },
+  });
+</script>
