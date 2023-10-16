@@ -1,0 +1,29 @@
+<meta charset="UTF-8" />
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<div id="app">
+    <Contador></Contador>
+    <contAdor></contAdor>
+    <contadoR></contadoR>
+    <coNtador></coNtador>
+</div>
+
+<script>
+    //Este tipo de registro e global
+  Vue.component('contador', {
+    template: `
+      <div>
+          <span> {{ contador }}</span>
+          <br>
+          <button @click="contador++">adicionar</button>
+          <button @click="contador--">remover</button>
+      </div>`,
+
+    data(){
+      return {contador: 0}
+    }
+  });
+  new Vue({
+    el: "#app",
+  });
+</script>
