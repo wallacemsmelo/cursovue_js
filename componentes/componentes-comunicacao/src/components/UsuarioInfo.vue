@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import barramento from '@/barramento'
+
 export default {
   /* props:[nome] ------> Validação de propriedades em formato array tbm pode usar, mas como objeto e mais usado*/
   /*  props: {
@@ -39,6 +41,11 @@ export default {
       this.$emit("nomeMudou", this.nome); //$EMIT: this.$emit('nomedoevento', variavel como um objeto{ com varias variaveis})
     },
   },
+  created(){
+    barramento.quandoIdadeMudar(idade => {
+      this.idade = idade
+    })
+  }
 };
 </script>
 
